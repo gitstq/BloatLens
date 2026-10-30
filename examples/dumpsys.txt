@@ -1,0 +1,27 @@
+Package [com.sony.tv.contentrow]
+  userId=10123
+  sharedUserId=com.sony.tv.shared
+  requested permissions:
+    android.permission.ACCESS_FINE_LOCATION
+    android.permission.READ_PHONE_STATE
+
+Package [com.sony.tv.partner.app]
+  userId=10123
+  sharedUserId=com.sony.tv.shared
+  requested permissions:
+    android.permission.ACCESS_COARSE_LOCATION
+
+Package [com.google.android.tungsten.home]
+  userId=10089
+  usesLibraries:
+    com.google.android.gms
+  requested permissions:
+    android.permission.RECORD_AUDIO
+
+Package [com.sony.tv.pushsdk]
+  userId=10155
+  requested permissions:
+    android.permission.READ_PHONE_STATE
+    android.permission.RECEIVE_BOOT_COMPLETED
+  receiver com.sony.tv.pushsdk.BootReceiver:
+    action: android.intent.action.BOOT_COMPLETED

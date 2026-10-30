@@ -1,0 +1,7 @@
+[ro.product.brand]: [Sony]
+[ro.product.manufacturer]: [Sony]
+[ro.product.model]: [BRAVIA 4K GB]
+[ro.product.device]: [BRAVIA_ATV3_4K]
+[ro.build.characteristics]: [tv]
+[ro.build.version.sdk]: [33]
+[ro.product.system.brand]: [Sony]

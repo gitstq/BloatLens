@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BloatLens 审计报告</title>
+<style>
+  :root { --bg:#0f1116; --card:#171a21; --fg:#e6e9ef; --muted:#9aa3b2; --line:#262b36;
+          --safe:#3fb950; --caution:#d29922; --risky:#f85149; --keep:#6e7681; --accent:#58a6ff; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:32px; background:var(--bg); color:var(--fg);
+         font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",Roboto,Helvetica,Arial,sans-serif; }
+  h1 { margin:0 0 4px; font-size:26px; }
+  .sub { color:var(--muted); margin-bottom:24px; }
+  .cards { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 18px; min-width:150px; }
+  .card .k { color:var(--muted); font-size:12px; }
+  .card .v { font-size:22px; font-weight:600; margin-top:2px; }
+  .ok { color:var(--safe); } .no { color:var(--risky); }
+  table { width:100%; border-collapse:collapse; background:var(--card);
+          border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  th { text-align:left; padding:10px 12px; background:#1c212b; color:var(--muted);
+       font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+  td { padding:9px 12px; border-top:1px solid var(--line); vertical-align:top; }
+  .pkg { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12.5px; word-break:break-all; }
+  .num { text-align:right; font-variant-numeric:tabular-nums; }
+  .strong { font-weight:700; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:700; }
+  .badge.safe { background:rgba(63,185,80,.16); color:var(--safe); }
+  .badge.caution { background:rgba(210,153,34,.16); color:var(--caution); }
+  .badge.risky { background:rgba(248,81,73,.16); color:var(--risky); }
+  .badge.keep { background:rgba(110,118,129,.16); color:var(--keep); }
+  .bar { width:120px; }
+  .bar span { display:block; height:8px; border-radius:4px;
+              background:linear-gradient(90deg,var(--accent),var(--safe)); }
+  .tag { display:inline-block; padding:1px 7px; margin:1px 3px 1px 0; border-radius:5px;
+         background:#222834; color:var(--muted); font-size:11px; }
+  .reason { color:var(--muted); font-size:12.5px; }
+  footer { margin-top:24px; color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<h1>🔍 BloatLens 审计报告</h1>
+<div class="sub">sony / BRAVIA 4K GB · Android TV · 2026-10-30T16:25:47.347Z</div>
+<div class="cards">
+  <div class="card"><div class="k">包总数</div><div class="v">25</div></div>
+  <div class="card"><div class="k">受保护</div><div class="v">11</div></div>
+  <div class="card"><div class="k">建议禁用</div><div class="v ok">4</div></div>
+  <div class="card"><div class="k">建议挂起</div><div class="v">0</div></div>
+  <div class="card"><div class="k">跳过</div><div class="v">21</div></div>
+  <div class="card"><div class="k">可逆性</div><div class="v ok">✅ 全部可撤销</div></div>
+</div>
+<table>
+  <thead><tr>
+    <th>包名</th><th>分级</th><th>原始分</th><th>爆炸惩罚</th><th>Net</th><th>置信条</th><th>命中信号</th><th>结论</th>
+  </tr></thead>
+  <tbody>
+<tr class="safe">
+      <td class="pkg">com.sony.tv.telemetry</td>
+      <td><span class="badge safe">SAFE</span></td>
+      <td class="num">78</td>
+      <td class="num">0</td>
+      <td class="num strong">78</td>
+      <td class="bar"><span style="width:78%"></span></td>
+      <td><span class="tag">遥测数据回传服务</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/priv-app（特权预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">4 条信号命中，无可观测依赖项，建议禁用</td>
+    </tr>
+<tr class="safe">
+      <td class="pkg">com.sony.tv.adservice</td>
+      <td><span class="badge safe">SAFE</span></td>
+      <td class="num">74</td>
+      <td class="num">0</td>
+      <td class="num strong">74</td>
+      <td class="bar"><span style="width:74%"></span></td>
+      <td><span class="tag">广告服务 / SDK</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/priv-app（特权预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">4 条信号命中，无可观测依赖项，建议禁用</td>
+    </tr>
+<tr class="safe">
+      <td class="pkg">com.sony.tv.usagereport</td>
+      <td><span class="badge safe">SAFE</span></td>
+      <td class="num">72</td>
+      <td class="num">0</td>
+      <td class="num strong">72</td>
+      <td class="bar"><span style="width:72%"></span></td>
+      <td><span class="tag">使用行为统计分析</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/priv-app（特权预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">4 条信号命中，无可观测依赖项，建议禁用</td>
+    </tr>
+<tr class="safe">
+      <td class="pkg">com.sony.tv.tracking</td>
+      <td><span class="badge safe">SAFE</span></td>
+      <td class="num">71</td>
+      <td class="num">0</td>
+      <td class="num strong">71</td>
+      <td class="bar"><span style="width:71%"></span></td>
+      <td><span class="tag">行为追踪 / 埋点服务</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">4 条信号命中，无可观测依赖项，建议禁用</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.pushsdk</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">68</td>
+      <td class="num">0</td>
+      <td class="num strong">68</td>
+      <td class="bar"><span style="width:68%"></span></td>
+      <td><span class="tag">厂商推送通道</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">注册开机自启接收器</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">声明 1 类敏感权限</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.crashreport</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">61</td>
+      <td class="num">0</td>
+      <td class="num strong">61</td>
+      <td class="bar"><span style="width:61%"></span></td>
+      <td><span class="tag">崩溃与诊断上报</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.contentrow</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">71</td>
+      <td class="num">12</td>
+      <td class="num strong">59</td>
+      <td class="bar"><span style="width:59%"></span></td>
+      <td><span class="tag">首页内容推荐行</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">声明 2 类敏感权限</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.diagnostics</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">59</td>
+      <td class="num">0</td>
+      <td class="num strong">59</td>
+      <td class="bar"><span style="width:59%"></span></td>
+      <td><span class="tag">设备健康 / 质量上报</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.attribution</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">57</td>
+      <td class="num">0</td>
+      <td class="num strong">57</td>
+      <td class="bar"><span style="width:57%"></span></td>
+      <td><span class="tag">广告归因与转化统计</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.partner.app</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">67</td>
+      <td class="num">12</td>
+      <td class="num strong">55</td>
+      <td class="bar"><span style="width:55%"></span></td>
+      <td><span class="tag">运营商 / 合作方预装</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">声明 1 类敏感权限</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.preload</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">55</td>
+      <td class="num">0</td>
+      <td class="num strong">55</td>
+      <td class="bar"><span style="width:55%"></span></td>
+      <td><span class="tag">预装 / 捆绑分发应用</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.ota.svc</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">51</td>
+      <td class="num">0</td>
+      <td class="num strong">51</td>
+      <td class="bar"><span style="width:51%"></span></td>
+      <td><span class="tag">系统 OTA 更新服务</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="caution">
+      <td class="pkg">com.sony.tv.voice.assist</td>
+      <td><span class="badge caution">CAUTION</span></td>
+      <td class="num">51</td>
+      <td class="num">0</td>
+      <td class="num strong">51</td>
+      <td class="bar"><span style="width:51%"></span></td>
+      <td><span class="tag">常驻语音唤醒服务</span> <span class="tag">Sony 厂商命名空间</span> <span class="tag">位于 /system/app（系统预装）</span> <span class="tag">厂商预装 + 特征词根交叉印证（置信度提升）</span></td>
+      <td class="reason">信号命中但证据中等，建议先观察</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">android</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">8</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/framework（框架层）</span></td>
+      <td class="reason">受保护：Android 系统框架共享 ID</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.android.bluetooth</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">9</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/app（系统预装）</span></td>
+      <td class="reason">受保护：蓝牙核心服务，遥控器配对依赖</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.android.providers.media</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">10</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/priv-app（特权预装）</span></td>
+      <td class="reason">受保护：系统内容提供者，禁用会导致数据服务崩溃</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.android.settings</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">10</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/priv-app（特权预装）</span></td>
+      <td class="reason">受保护：系统设置，禁用后无法恢复任何配置</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.android.systemui</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">10</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/priv-app（特权预装）</span></td>
+      <td class="reason">受保护：系统界面，禁用后无法进入桌面</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.android.vending</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">10</td>
+      <td class="num">36</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/priv-app（特权预装）</span></td>
+      <td class="reason">受保护：Play 商店，恢复应用的唯一入口</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.google.android.gms</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">10</td>
+      <td class="num">36</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/priv-app（特权预装）</span></td>
+      <td class="reason">受保护：Google Play 服务主体，禁用会导致大量应用崩溃</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.google.android.gsf</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">10</td>
+      <td class="num">27</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/priv-app（特权预装）</span></td>
+      <td class="reason">受保护：Google 服务框架，账号与同步依赖</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.google.android.tungsten.home</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">19</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">位于 /system/app（系统预装）</span> <span class="tag">声明 1 类敏感权限</span></td>
+      <td class="reason">受保护：Google TV 界面框架</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.netflix.ninja</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">8</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">第三方厂商 / ODM 命名空间</span> <span class="tag">位于 /data/app（用户后装）</span></td>
+      <td class="reason">受保护：用户白名单 / 默认保留名单</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">com.sony.tv.telemetry.legacy</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">0</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td>—</td>
+      <td class="reason">已禁用，跳过</td>
+    </tr>
+<tr class="keep">
+      <td class="pkg">org.videolan.vlc</td>
+      <td><span class="badge keep">KEEP</span></td>
+      <td class="num">8</td>
+      <td class="num">0</td>
+      <td class="num strong">0</td>
+      <td class="bar"><span style="width:0%"></span></td>
+      <td><span class="tag">第三方厂商 / ODM 命名空间</span> <span class="tag">位于 /data/app（用户后装）</span></td>
+      <td class="reason">受保护：用户白名单 / 默认保留名单</td>
+    </tr>
+  </tbody>
+</table>
+<footer>由 <strong>BloatLens</strong> 生成 · 零依赖 · 离线优先 · 执行前请备份并使用 restore 脚本验证撤销路径。</footer>
+</body>
+</html>

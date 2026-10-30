@@ -1,0 +1,259 @@
+{
+  "plan": {
+    "snapshot": {
+      "brand": "sony",
+      "model": "BRAVIA 4K GB",
+      "isTv": true,
+      "totalPackages": 25,
+      "capturedAt": "2026-10-30T16:25:47.378Z"
+    },
+    "ruleSets": [
+      "builtin/telemetry",
+      "builtin/advertising",
+      "builtin/bloat-feature",
+      "builtin/ota",
+      "builtin/namespace"
+    ],
+    "actions": [
+      {
+        "package": "com.sony.tv.telemetry",
+        "action": "disable-user",
+        "grade": "safe",
+        "netScore": 78,
+        "command": "adb shell pm disable-user --user 0 com.sony.tv.telemetry",
+        "undoCommand": "adb shell pm enable com.sony.tv.telemetry",
+        "reason": "4 条信号命中，无可观测依赖项，建议禁用"
+      },
+      {
+        "package": "com.sony.tv.telemetry.legacy",
+        "action": "disable-user",
+        "grade": "safe",
+        "netScore": 77,
+        "command": "adb shell pm disable-user --user 0 com.sony.tv.telemetry.legacy",
+        "undoCommand": "adb shell pm enable com.sony.tv.telemetry.legacy",
+        "reason": "4 条信号命中，无可观测依赖项，建议禁用"
+      },
+      {
+        "package": "com.sony.tv.adservice",
+        "action": "disable-user",
+        "grade": "safe",
+        "netScore": 74,
+        "command": "adb shell pm disable-user --user 0 com.sony.tv.adservice",
+        "undoCommand": "adb shell pm enable com.sony.tv.adservice",
+        "reason": "4 条信号命中，无可观测依赖项，建议禁用"
+      },
+      {
+        "package": "com.sony.tv.usagereport",
+        "action": "disable-user",
+        "grade": "safe",
+        "netScore": 72,
+        "command": "adb shell pm disable-user --user 0 com.sony.tv.usagereport",
+        "undoCommand": "adb shell pm enable com.sony.tv.usagereport",
+        "reason": "4 条信号命中，无可观测依赖项，建议禁用"
+      },
+      {
+        "package": "com.sony.tv.tracking",
+        "action": "disable-user",
+        "grade": "safe",
+        "netScore": 71,
+        "command": "adb shell pm disable-user --user 0 com.sony.tv.tracking",
+        "undoCommand": "adb shell pm enable com.sony.tv.tracking",
+        "reason": "4 条信号命中，无可观测依赖项，建议禁用"
+      },
+      {
+        "package": "com.sony.tv.crashreport",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 61,
+        "command": "adb shell pm suspend com.sony.tv.crashreport",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.crashreport",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "com.sony.tv.contentrow",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 59,
+        "command": "adb shell pm suspend com.sony.tv.contentrow",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.contentrow",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "com.sony.tv.diagnostics",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 59,
+        "command": "adb shell pm suspend com.sony.tv.diagnostics",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.diagnostics",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "com.sony.tv.attribution",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 57,
+        "command": "adb shell pm suspend com.sony.tv.attribution",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.attribution",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "com.sony.tv.partner.app",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 57,
+        "command": "adb shell pm suspend com.sony.tv.partner.app",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.partner.app",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "com.sony.tv.preload",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 55,
+        "command": "adb shell pm suspend com.sony.tv.preload",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.preload",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "com.sony.tv.ota.svc",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 51,
+        "command": "adb shell pm suspend com.sony.tv.ota.svc",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.ota.svc",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "com.sony.tv.pushsdk",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 51,
+        "command": "adb shell pm suspend com.sony.tv.pushsdk",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.pushsdk",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "com.sony.tv.voice.assist",
+        "action": "skip",
+        "grade": "caution",
+        "netScore": 51,
+        "command": "adb shell pm suspend com.sony.tv.voice.assist",
+        "undoCommand": "adb shell pm unsuspend com.sony.tv.voice.assist",
+        "reason": "信号命中但证据中等，建议先观察（默认未纳入，使用 --include-caution 启用）"
+      },
+      {
+        "package": "android",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip android",
+        "undoCommand": "# skip android",
+        "reason": "受保护：Android 系统框架共享 ID"
+      },
+      {
+        "package": "com.android.bluetooth",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.android.bluetooth",
+        "undoCommand": "# skip com.android.bluetooth",
+        "reason": "受保护：蓝牙核心服务，遥控器配对依赖"
+      },
+      {
+        "package": "com.android.providers.media",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.android.providers.media",
+        "undoCommand": "# skip com.android.providers.media",
+        "reason": "受保护：系统内容提供者，禁用会导致数据服务崩溃"
+      },
+      {
+        "package": "com.android.settings",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.android.settings",
+        "undoCommand": "# skip com.android.settings",
+        "reason": "受保护：系统设置，禁用后无法恢复任何配置"
+      },
+      {
+        "package": "com.android.systemui",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.android.systemui",
+        "undoCommand": "# skip com.android.systemui",
+        "reason": "受保护：系统界面，禁用后无法进入桌面"
+      },
+      {
+        "package": "com.android.vending",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.android.vending",
+        "undoCommand": "# skip com.android.vending",
+        "reason": "受保护：Play 商店，恢复应用的唯一入口"
+      },
+      {
+        "package": "com.google.android.gms",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.google.android.gms",
+        "undoCommand": "# skip com.google.android.gms",
+        "reason": "受保护：Google Play 服务主体，禁用会导致大量应用崩溃"
+      },
+      {
+        "package": "com.google.android.gsf",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.google.android.gsf",
+        "undoCommand": "# skip com.google.android.gsf",
+        "reason": "受保护：Google 服务框架，账号与同步依赖"
+      },
+      {
+        "package": "com.google.android.tungsten.home",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.google.android.tungsten.home",
+        "undoCommand": "# skip com.google.android.tungsten.home",
+        "reason": "受保护：Google TV 界面框架"
+      },
+      {
+        "package": "com.netflix.ninja",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip com.netflix.ninja",
+        "undoCommand": "# skip com.netflix.ninja",
+        "reason": "受保护：用户白名单 / 默认保留名单"
+      },
+      {
+        "package": "org.videolan.vlc",
+        "action": "skip",
+        "grade": "keep",
+        "netScore": 0,
+        "command": "# skip org.videolan.vlc",
+        "undoCommand": "# skip org.videolan.vlc",
+        "reason": "受保护：用户白名单 / 默认保留名单"
+      }
+    ],
+    "summary": {
+      "total": 25,
+      "disableUser": 5,
+      "disable": 0,
+      "suspend": 0,
+      "skip": 20,
+      "protectedCount": 11
+    },
+    "reversibility": {
+      "allReversible": true,
+      "missingUndo": [],
+      "restoreScript": "#!/bin/sh\n#\n# BloatLens restore script\n# generated at 2026-10-30T16:25:47.378Z\n#\n# 本脚本是幂等的：重复执行不会改变最终状态，也不会产生副作用。\n# 用法： sh restore.sh        （按设备执行）\n#       sh restore.sh --dry-run  （仅打印，不执行）\n\nset -eu\n\nDRY_RUN=0\nif [ \"${1:-}\" = \"--dry-run\" ]; then DRY_RUN=1; fi\n\nrun() {\n  if [ \"$DRY_RUN\" = \"1\" ]; then echo \"[dry-run] $*\"; else \"$@\" || echo \"[warn] failed: $*\"; fi\n}\n\necho \"Restoring 5 package(s)...\"\n\n# com.sony.tv.telemetry  (grade=safe, netScore=78)\nrun adb shell pm enable com.sony.tv.telemetry\n\n# com.sony.tv.telemetry.legacy  (grade=safe, netScore=77)\nrun adb shell pm enable com.sony.tv.telemetry.legacy\n\n# com.sony.tv.adservice  (grade=safe, netScore=74)\nrun adb shell pm enable com.sony.tv.adservice\n\n# com.sony.tv.usagereport  (grade=safe, netScore=72)\nrun adb shell pm enable com.sony.tv.usagereport\n\n# com.sony.tv.tracking  (grade=safe, netScore=71)\nrun adb shell pm enable com.sony.tv.tracking\n\necho \"Restore finished.\"\n"
+    }
+  },
+  "applyScript": "#!/bin/sh\n# BloatLens apply script — 与 restore.sh 成对生成\n# device: (default)   packages: 25\n\nset -eu\nDRY_RUN=0\nif [ \"${1:-}\" = \"--dry-run\" ]; then DRY_RUN=1; fi\nrun() {\n  if [ \"$DRY_RUN\" = \"1\" ]; then echo \"[dry-run] $*\"; else \"$@\" || echo \"[warn] failed: $*\"; fi\n}\n\n# com.sony.tv.telemetry  (safe, net=78) — 4 条信号命中，无可观测依赖项，建议禁用\nrun adb shell pm disable-user --user 0 com.sony.tv.telemetry\n\n# com.sony.tv.telemetry.legacy  (safe, net=77) — 4 条信号命中，无可观测依赖项，建议禁用\nrun adb shell pm disable-user --user 0 com.sony.tv.telemetry.legacy\n\n# com.sony.tv.adservice  (safe, net=74) — 4 条信号命中，无可观测依赖项，建议禁用\nrun adb shell pm disable-user --user 0 com.sony.tv.adservice\n\n# com.sony.tv.usagereport  (safe, net=72) — 4 条信号命中，无可观测依赖项，建议禁用\nrun adb shell pm disable-user --user 0 com.sony.tv.usagereport\n\n# com.sony.tv.tracking  (safe, net=71) — 4 条信号命中，无可观测依赖项，建议禁用\nrun adb shell pm disable-user --user 0 com.sony.tv.tracking\n\n"
+}
