@@ -1,0 +1,58 @@
+{
+  "name": "bloatlens",
+  "version": "1.0.0",
+  "description": "BloatLens - 零依赖·离线优先的 Android / Android TV 臃肿软件审计与可逆清理编排引擎 | Zero-dependency, offline-first Android bloatware audit & reversible debloat orchestration engine (CLI + library)",
+  "keywords": [
+    "android",
+    "android-tv",
+    "google-tv",
+    "bloatware",
+    "debloat",
+    "adb",
+    "privacy",
+    "telemetry",
+    "audit",
+    "cli",
+    "zero-dependency",
+    "offline-first",
+    "typescript"
+  ],
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "bloatlens": "dist/cli.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "tsc -p tsconfig.test.json && node --test dist-tests/tests/*.test.js",
+    "smoke": "npm run build && tsc -p tsconfig.test.json && node dist-tests/scripts/smoke.js",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.zh-TW.md",
+    "README.en.md",
+    "CONTRIBUTING.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitstq/BloatLens.git"
+  },
+  "homepage": "https://github.com/gitstq/BloatLens",
+  "bugs": {
+    "url": "https://github.com/gitstq/BloatLens/issues"
+  }
+}

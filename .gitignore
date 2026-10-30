@@ -1,0 +1,28 @@
+# 构建产物
+dist/
+dist-tests/
+*.tsbuildinfo
+
+# 依赖
+node_modules/
+package-lock.json
+
+# 本地环境 / 私有配置
+.env
+.env.*
+*.local
+
+# 设备快照（可能含隐私信息，默认不入库）
+snapshots/
+*.snapshot.json
+!examples/*.snapshot.json
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+npm-debug.log*
